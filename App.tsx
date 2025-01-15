@@ -6,7 +6,7 @@ export default function App() {
   useEffect(() => {
     async function setup() {
       try {
-        await TrackPlayer.setupPlayer({});
+        await TrackPlayer.setupPlayer();
         await TrackPlayer.updateOptions({
           // Media controls capabilities
           capabilities: [

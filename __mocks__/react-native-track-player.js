@@ -1,0 +1,27 @@
+jest.mock('react-native-track-player', () => ({
+  useActiveTrack: jest.fn(),
+  usePlaybackState: jest.fn(),
+  useProgress: jest.fn(),
+  pause: jest.fn(),
+  play: jest.fn(),
+  skipToNext: jest.fn(),
+  skipToPrevious: jest.fn(),
+  add: jest.fn(),
+  reset: jest.fn(),
+  setupPlayer: jest.fn(),
+  updateOptions: jest.fn(),
+  seekTo: jest.fn(),
+  State: {
+    None: 'none',
+    Playing: 'playing',
+    Buffering: 'buffering',
+    Paused: 'paused',
+  },
+  Capability: {
+    Play: 'play',
+    Pause: 'pause',
+    SkipToNext: 'skipToNext',
+    SkipToPrevious: 'skipToPrevious',
+    Stop: 'stop',
+  },
+}));

@@ -67,8 +67,8 @@ export default function Player() {
   }
 
   return (
-    <Fragment>
-      <Pressable onPress={openModal}>
+    <View>
+      <Pressable testID="collapsedPlayer" onPress={openModal}>
         <SeekBar showTime={false} />
         <View style={styles.player}>
           <Image
@@ -84,7 +84,7 @@ export default function Player() {
             </Text>
           </View>
           <View style={styles.controls1}>
-            <TouchableOpacity onPress={playPause}>
+            <TouchableOpacity testID="playPauseBtn1" onPress={playPause}>
               {isBuffering ? (
                 <Feather name="loader" size={24} color={colors.primaryText} />
               ) : (
@@ -95,7 +95,7 @@ export default function Player() {
                 />
               )}
             </TouchableOpacity>
-            <TouchableOpacity onPress={playNext}>
+            <TouchableOpacity testID="nextBtn1" onPress={playNext}>
               <MaterialCommunityIcons
                 name="skip-next"
                 size={24}
@@ -106,11 +106,12 @@ export default function Player() {
         </View>
       </Pressable>
       <Modal
+        testID="expandedPlayer"
         visible={exapanded}
         animationType="slide"
         onRequestClose={closeModal}>
         <View style={styles.header}>
-          <Pressable onPress={closeModal}>
+          <Pressable testID="closeModalBtn" onPress={closeModal}>
             <MaterialCommunityIcons
               name="chevron-down"
               size={28}
@@ -155,14 +156,17 @@ export default function Player() {
                   color={colors.primaryText}
                 />
               </TouchableOpacity>
-              <TouchableOpacity onPress={playPrevious}>
+              <TouchableOpacity testID="prevBtn2" onPress={playPrevious}>
                 <MaterialCommunityIcons
                   name="skip-previous"
                   size={32}
                   color={colors.primaryText}
                 />
               </TouchableOpacity>
-              <TouchableOpacity onPress={playPause} style={styles.button}>
+              <TouchableOpacity
+                testID="playPauseBtn2"
+                onPress={playPause}
+                style={styles.button}>
                 {isBuffering ? (
                   <Feather name="loader" size={40} color="#000" />
                 ) : (
@@ -173,7 +177,7 @@ export default function Player() {
                   />
                 )}
               </TouchableOpacity>
-              <TouchableOpacity onPress={playNext}>
+              <TouchableOpacity testID="nextBtn2" onPress={playNext}>
                 <MaterialCommunityIcons
                   name="skip-next"
                   size={32}
@@ -191,7 +195,7 @@ export default function Player() {
           </View>
         </View>
       </Modal>
-    </Fragment>
+    </View>
   );
 }
 

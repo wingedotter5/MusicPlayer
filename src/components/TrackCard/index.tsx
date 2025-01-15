@@ -59,7 +59,10 @@ export default function TrackCard({ track }: Props) {
           resizeMode="cover"
           style={styles.artwork}
         />
-        <TouchableOpacity onPress={playPauseTrack} style={styles.button}>
+        <TouchableOpacity
+          testID="playPauseBtn"
+          onPress={playPauseTrack}
+          style={styles.button}>
           {isBuffering && isCurrentTrack ? (
             <Feather name="loader" size={20} color={colors.primaryText} />
           ) : (
